@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" fill="none">
+ <defs>
+  <linearGradient id="body" x1="300" y1="160" x2="390" y2="330" gradientUnits="userSpaceOnUse"><stop stop-color="#c9c9b8"/><stop offset=".36" stop-color="#858e7e"/><stop offset=".4" stop-color="#d4d3bf"/><stop offset="1" stop-color="#4e584a"/></linearGradient>
+  <linearGradient id="hood" x1="420" y1="190" x2="450" y2="290" gradientUnits="userSpaceOnUse"><stop stop-color="#a3aa96"/><stop offset="1" stop-color="#d6d6bf"/></linearGradient>
+  <linearGradient id="glass" x1="340" y1="110" x2="405" y2="220" gradientUnits="userSpaceOnUse"><stop stop-color="#141e1a"/><stop offset=".5" stop-color="#384d42"/><stop offset="1" stop-color="#17271e"/></linearGradient>
+  <linearGradient id="tire" x1="0" x2="1"><stop stop-color="#090d0a"/><stop offset=".5" stop-color="#222b21"/><stop offset="1" stop-color="#080c09"/></linearGradient>
+  <linearGradient id="rim" x1="0" x2="1"><stop stop-color="#576452"/><stop offset=".5" stop-color="#b9c2a9"/><stop offset="1" stop-color="#43533f"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="3"/></filter>
+ </defs>
+ <!-- An original vector time machine: stainless steel wedge, cables and rear reactor. -->
+ <ellipse cx="374" cy="330" rx="242" ry="28" fill="#070b08" opacity=".45"/>
+ <g stroke="#101910" stroke-width="2">
+  <path d="M160 243 124 256 126 294 165 314 203 300 197 263Z" fill="url(#tire)"/>
+  <ellipse cx="169" cy="282" rx="29" ry="36" transform="rotate(-20 169 282)" fill="#101810"/>
+  <ellipse cx="172" cy="282" rx="19" ry="27" transform="rotate(-20 172 282)" fill="url(#rim)"/>
+  <ellipse cx="172" cy="282" rx="12" ry="19" transform="rotate(-20 172 282)" fill="#293a29"/>
+  <path d="m164 263 16 38m-23-25 28 12m-24 8 20-29" stroke="#b2bca2" stroke-width="2"/>
+  <path d="m483 286-33 6-1 40 29 27 38-5 18-34-16-30" fill="url(#tire)"/>
+  <ellipse cx="493" cy="323" rx="30" ry="38" transform="rotate(-16 493 323)" fill="#111910"/>
+  <ellipse cx="496" cy="322" rx="20" ry="28" transform="rotate(-16 496 322)" fill="url(#rim)"/>
+  <ellipse cx="496" cy="322" rx="12" ry="19" transform="rotate(-16 496 322)" fill="#2d3b2b"/>
+  <path d="m490 301 12 42m-23-27 34 13m-27 10 21-33m-30 17 38-3" stroke="#b2bca2" stroke-width="2"/>
+  <path d="m115 210 68-40 195 20 233 62-12 47-76 32-13-31-20-12-22 3-15 13-10 32-240-55-7-26-23-17-23 1-16 14-5 24-27-10Z" fill="url(#body)"/>
+  <path d="m115 210 199 47 297-5-232-62-196-20Z" fill="#9da590"/>
+  <path d="m319 257 160-52 132 47-79 35Z" fill="url(#hood)"/>
+  <path d="m339 254 137-43 115 40-71 27Z" stroke="#eef0d3" stroke-opacity=".4" stroke-width="1"/>
+  <path d="m313 252-103-29 33-104 116 26 74 72Z" fill="#a5ad98"/>
+  <path d="m251 126 99 24 64 64-96 28-97-25Z" fill="url(#glass)" stroke="#d4d6bf"/>
+  <path d="m258 134 34 9 16 86-74-20Z" fill="#15241b" stroke="#73836c" stroke-width="1"/>
+  <path d="m303 146 42 10 57 53-81 23Z" fill="#1c2e23" stroke="#73836c" stroke-width="1"/>
+  <path d="m243 119 62-22 117 26-63 22Z" fill="#b6bdab"/>
+  <path d="m359 145 63-22 57 82-46 12Z" fill="#293d30" stroke="#b9c4ac"/>
+  <path d="m371 149 44-16 48 64-31 10Z" fill="url(#glass)" stroke="#6c816b" stroke-width="1"/>
+  <path d="m385 148 51 48m-43-52 46 43" stroke="#9cac9740" stroke-width="3"/>
+  <path d="m255 122 52-18 102 23" stroke="#e1e5cc" stroke-width="1"/>
+  <path d="m229 225 85 24 8 57-106-24" stroke="#4d5c46" stroke-width="1.5"/>
+  <path d="m325 248 111-32 15 68-9 22-118 1Z" stroke="#5e6d54" stroke-width="1.5"/>
+  <path d="m333 265 21-6" stroke="#1e2a1d" stroke-width="5"/>
+  <path d="m334 263 19-5" stroke="#c7cdb6" stroke-width="2"/>
+  <path d="m206 274 229 51 12-12-234-53" fill="#243122" stroke="#7b8c6b" stroke-width="1"/>
+  <path d="m529 287 82-35-2 29-81 33" fill="#2c3528"/>
+  <path d="m536 290 26-12-1 15-26 11Z" fill="#f1e6b7" stroke="#839577"/>
+  <path d="m566 276 26-12-1 15-26 11Z" fill="#f1e6b7" stroke="#839577"/>
+  <path d="m538 292 21-10m9-2 21-10" stroke="#fff9db" stroke-width="2"/>
+  <path d="m529 315 76-32-5 13-74 32Z" fill="#111a11" stroke="#55644c"/>
+  <path d="m552 312 25-11" stroke="#a5b390" stroke-width="3"/>
+  <path d="m123 218 25 6-5 17-23-6Z" fill="#8d3d24"/>
+  <path d="m123 221 23 5" stroke="#fc8d4d" stroke-width="3"/>
+ </g>
+ <!-- Rear deck and handmade time-travel hardware. -->
+ <g stroke="#101b12" stroke-width="2">
+  <path d="m135 191 55-35 43 9-15 56Z" fill="#344632"/>
+  <path d="m142 185 15-36 33-15 26 9-12 58-27 8Z" fill="#17251a" stroke="#a1b093"/>
+  <path d="m157 151 33-15 20 9-32 17Z" fill="#819477"/>
+  <path d="m159 159 36-14m-39 23 37-15m-40 23 38-15m-41 23 38-15m-40 24 37-15" stroke="#718769" stroke-width="2"/>
+  <path d="m187 204 13-39 29-10 14 9-13 50Z" fill="#213220" stroke="#9bab8b"/>
+  <path d="m201 170 29-9m-32 17 30-10m-33 18 30-10m-33 18 30-10m-32 17 29-9" stroke="#748a67" stroke-width="2"/>
+  <path d="m123 200 20-7 80 25-9 10Z" fill="#89987a"/>
+  <path d="m136 198 75 23m-60-30 64 22" stroke="#d2d7bc" stroke-width="1"/>
+  <path d="m168 208 21 4 10 28-23-5Z" fill="#475c3d" stroke="#bdc8a7"/>
+  <path d="m182 208 5-38 8-6 7 2-3 48" fill="#687d57" stroke="#bbc8a6"/>
+  <ellipse cx="194" cy="166" rx="8" ry="4" fill="#cbd3b5"/>
+ </g>
+ <g stroke-linecap="round" stroke-linejoin="round">
+  <path d="M125 207 134 218 207 238 220 228 320 255 438 224 478 238 526 282 608 246" stroke="#1a2e1a" stroke-width="9"/>
+  <path d="M125 207 134 218 207 238 220 228 320 255 438 224 478 238 526 282 608 246" stroke="#b9d0a4" stroke-width="3"/>
+  <path d="M125 207 134 218 207 238 220 228 320 255 438 224 478 238 526 282 608 246" stroke="#e5eac5" stroke-width="1"/>
+  <path d="m218 227-3-24 14-49 20-25m74 123-11-22-16-84" stroke="#ac7146" stroke-width="3"/>
+  <path d="m238 181 2-15 11-25m-4 53 6-34" stroke="#a1baa0" stroke-width="1"/>
+  <path d="m173 229 15-8 8 3 12-11" stroke="#ddae66" stroke-width="2"/>
+  <path d="m393 219 16 7 11-3-4-8-14-5Z" fill="#9aa98b" stroke="#263a25" stroke-width="2"/>
+ </g>
+ <g fill="#c6cdb6"><circle cx="226" cy="249" r="1.5"/><circle cx="313" cy="270" r="1.5"/><circle cx="426" cy="239" r="1.5"/><circle cx="433" cy="292" r="1.5"/></g>
+ <path d="m536 290 26-12m4-2 26-12" stroke="#ffda99" stroke-width="8" opacity=".6" filter="url(#glow)"/>
+ <path d="m151 241 13 3" stroke="#ff9b48" stroke-width="3"/>
+</svg>
