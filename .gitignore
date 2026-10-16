@@ -2,5 +2,6 @@
 node_modules/
 artifacts/
 .sites-local/
+.openai/
 *.tar.gz
 __pycache__/
