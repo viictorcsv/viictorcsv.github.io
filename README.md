@@ -19,6 +19,7 @@ No PowerShell com execução de scripts restrita, use `npm.cmd run dev`. Abra ht
 - `dist/index.html`: página gerada em português (`/`).
 - `dist/en/index.html`: página gerada em inglês (`/en/`).
 - `dist/styles.css`: identidade visual, layout e adaptação para celular.
+- `dist/readability.css`: escala de leitura, contraste, capas fornecidas pelo autor e apresentação dos logos.
 - `dist/app.js`: aceleração, faíscas em canvas, datas, temas, pastas e rascunho de e-mail.
 - `dist/assets/time-machine-top.svg`: ilustração vetorial editável do carro visto de cima.
 - `dist/assets/pedro-victor-curriculo.pdf`: currículo fornecido pelo autor.
@@ -32,7 +33,9 @@ O scroll é nativo. No desktop, a cena permanece à direita; no celular, carro e
 
 O botão de pausa e `prefers-reduced-motion` desativam os efeitos. Tema e pausa são armazenados localmente quando permitido. O seletor PT/EN mantém o capítulo atual entre as páginas. As pastas aceitam setas, Home e End. O texto dos dois idiomas e os links estão no HTML estático, sem depender de tradução externa.
 
-O formulário prepara um link `mailto:` para revisão e envio pelo aplicativo do visitante. Não envia mensagens automaticamente e não depende de backend. Links das músicas abrem buscas no Spotify, sem reprodução automática. Os cartazes são ilustrações próprias em CSS. O currículo oferecido nos dois idiomas permanece em português e é identificado assim.
+O formulário prepara um link `mailto:` para revisão e envio pelo aplicativo do visitante. Não envia mensagens automaticamente e não depende de backend. Links das músicas abrem buscas no Spotify, sem reprodução automática. Os filmes usam as imagens fornecidas pelo autor; as capas dos álbuns ficam no centro dos vinis. Esses arquivos estão em `dist/assets/culture/`. O currículo oferecido nos dois idiomas permanece em português e é identificado assim.
+
+Descrições, terminal e formulário usam Manrope a partir de 14 px, seguindo o texto de apresentação aprovado. Os títulos grandes preservam a hierarquia anterior. As tecnologias usam logos locais com nomes visíveis; fontes e atribuições estão em `dist/assets/logos/SOURCES.md`.
 
 Os anos 1985 e 2015 no painel são referências cinematográficas, não datas de projetos. Datas profissionais estão na seção Trajetória. A formação em Ciência da Computação mantém a conclusão prevista em 2026 conforme o currículo.
 
@@ -40,7 +43,6 @@ Os anos 1985 e 2015 no painel são referências cinematográficas, não datas de
 
 Conteúdo profissional extraído de `curriculoPedroVictor.pdf`, fornecido pelo autor. Projetos consultados em 15/10/2026:
 
-- https://github.com/viictorcsv/cogudex — projeto em coautoria com Iara.
 - https://github.com/viictorcsv/wikiart-style-classifier-yolo
 - https://github.com/viictorcsv/credit-fraud-detection
 - https://github.com/viictorcsv/daily-word

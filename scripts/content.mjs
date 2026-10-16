@@ -6,7 +6,6 @@ export const content = {
     offscreen: 'QUANDO O EDITOR DE CÓDIGO FECHA', favorites: 'Minhas outras coordenadas.', movies: 'Na minha videoteca', music: 'Na minha vitrola', bttf: 'De volta para o futuro', alien: 'Alien, o oitavo passageiro', listen: 'Buscar no Spotify',
     projectsLabel: '01 / EXPERIMENTOS REAIS', projectsTitle: 'Projetos que<br><em>saíram do papel.</em>', projectsIntro: 'Interfaces, redes neurais e boas perguntas. Um pouco do que venho construindo.', repo: 'Ver código', allProjects: 'Mais experimentos no GitHub',
     projects: [
-      ['DESENVOLVIMENTO WEB', 'Cogudex', 'Um guia interativo do reino fungi, com catálogo visual e pesquisa dinâmica. Desenvolvido com Iara.', 'React · TypeScript · Tailwind CSS'],
       ['VISÃO COMPUTACIONAL', 'Quando a IA olha para a arte', 'Da preparação dos dados à análise de erros: classificação de estilos artísticos com YOLO11.', 'Python · YOLO11 · OpenCV'],
       ['MACHINE LEARNING', 'O padrão por trás da fraude', 'Uma LSTM para investigar sequências de transações financeiras no dataset sintético PaySim.', 'Python · LSTM · Scikit-learn'],
       ['ANÁLISE DE DADOS', 'Cinco letras. Muitos dados.', 'Uma análise exploratória de tweets sobre Wordle, conectando tentativas, padrões e comportamento.', 'Pandas · Matplotlib · Seaborn']
@@ -34,7 +33,6 @@ export const content = {
     offscreen: 'WHEN THE CODE EDITOR CLOSES', favorites: 'My other coordinates.', movies: 'In my film collection', music: 'On my turntable', bttf: 'Back to the Future', alien: 'Alien', listen: 'Find on Spotify',
     projectsLabel: '01 / REAL EXPERIMENTS', projectsTitle: 'Ideas that<br><em>became projects.</em>', projectsIntro: 'Interfaces, neural networks, and good questions. A selection of what I’ve been building.', repo: 'View code', allProjects: 'More experiments on GitHub',
     projects: [
-      ['WEB DEVELOPMENT', 'Cogudex', 'An interactive guide to the fungi kingdom, with a visual catalog and live search. Built with Iara.', 'React · TypeScript · Tailwind CSS'],
       ['COMPUTER VISION', 'When AI looks at art', 'From data preparation to error analysis: classifying artistic styles with YOLO11.', 'Python · YOLO11 · OpenCV'],
       ['MACHINE LEARNING', 'The pattern behind fraud', 'An LSTM exploring sequences of financial transactions in the synthetic PaySim dataset.', 'Python · LSTM · Scikit-learn'],
       ['DATA ANALYSIS', 'Five letters. Plenty of data.', 'Exploratory analysis of Wordle tweets, connecting attempts, patterns, and player behavior.', 'Pandas · Matplotlib · Seaborn']

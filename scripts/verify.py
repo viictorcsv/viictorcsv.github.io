@@ -14,10 +14,14 @@ with sync_playwright() as p:
     assert page.goto('http://127.0.0.1:5173', wait_until='networkidle').status == 200
     page.evaluate('document.fonts.ready')
     assert page.evaluate("document.fonts.check('700 60px Syne') && document.fonts.check('400 14px Manrope')")
-    page.screenshot(path=str(output / 'v2-desktop.png'))
-    assert page.locator('.project').count() == 4
+    page.screenshot(path=str(output / 'v3-desktop.png'))
+    assert page.locator('.project').count() == 3
     assert page.locator('.poster').count() == 2
     assert page.locator('.record').count() == 2
+    assert page.locator('a[href*="cogudex"]').count() == 0
+    assert page.locator('.brand > span, .contact-symbol').count() == 0
+    assert page.locator('.tech-logo img').count() == 18
+    assert page.locator('.record-label img').count() == 2
 
     # Real scroll input at two rates: speed rises, particles render, and the car coasts to rest.
     page.evaluate("document.documentElement.style.scrollBehavior='auto'")
@@ -95,11 +99,17 @@ with sync_playwright() as p:
             page.set_viewport_size({'width': width, 'height': 844})
             page.goto('http://127.0.0.1:5173' + route, wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), (route, width)
+            for selector in ('.project-copy > p:not(.project-category)', '.terminal-file', '.timeline article > p:last-child', '.contact-form label'):
+                assert page.locator(selector).first.evaluate('(el) => parseFloat(getComputedStyle(el).fontSize)') >= 14, (route, width, selector)
+            page.locator('.skills').scroll_into_view_if_needed()
+            page.wait_for_timeout(150)
+            assert page.locator('.tech-logo img').evaluate_all('(els) => els.every(el => el.complete && el.naturalWidth > 0)')
+            page.evaluate('window.scrollTo({top:0,behavior:"instant"})')
             if width == 390 and route == '/':
                 page.screenshot(path=str(output / 'v2-mobile.png'))
                 page.locator('.header a[href="#projetos"]').click()
                 page.wait_for_timeout(1100)
-                assert 125 <= page.locator('#projetos').bounding_box()['y'] <= 180
+                assert 150 <= page.locator('#projetos').bounding_box()['y'] <= 210
                 assert page.locator('#destination-year').is_visible()
                 assert page.locator('#destination-year').inner_text() == '2015'
                 page.screenshot(path=str(output / 'v2-mobile-projects.png'))
