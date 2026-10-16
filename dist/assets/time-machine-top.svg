@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 440" fill="none">
+<defs><linearGradient id="steel" x1="35" x2="205" y1="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#687278"/><stop offset=".16" stop-color="#d5d9d4"/><stop offset=".5" stop-color="#aab6b8"/><stop offset=".83" stop-color="#e5e9dc"/><stop offset="1" stop-color="#68767a"/></linearGradient><linearGradient id="glass" x1="120" y1="230" x2="120" y2="340" gradientUnits="userSpaceOnUse"><stop stop-color="#1e3e45"/><stop offset="1" stop-color="#07131c"/></linearGradient><linearGradient id="hood" x1="65" y1="310" x2="170" y2="395" gradientUnits="userSpaceOnUse"><stop stop-color="#c1cdca"/><stop offset="1" stop-color="#647f86"/></linearGradient></defs>
+<!-- Original overhead illustration. Front faces down the timeline. -->
+<g fill="#080e12" stroke="#3e4b52" stroke-width="2"><rect x="26" y="72" width="25" height="73" rx="9"/><rect x="189" y="72" width="25" height="73" rx="9"/><rect x="26" y="295" width="25" height="72" rx="9"/><rect x="189" y="295" width="25" height="72" rx="9"/></g>
+<path d="M55 32Q120 19 185 32L200 82 200 347 187 398Q120 415 53 398L40 347 40 82Z" fill="url(#steel)" stroke="#d6e3df" stroke-width="2"/>
+<path d="m55 38 130 0 8 54H47Z" fill="#142229" stroke="#7a8d94"/>
+<path d="M50 40H82V118H49ZM158 40H190V118H158Z" fill="#202b30" stroke="#9aadaf" stroke-width="2"/>
+<path d="M53 49h24m-24 9h24m-24 9h24m-24 9h24m-24 9h24m-24 9h24m-24 9h24m84-54h24m-24 9h24m-24 9h24m-24 9h24m-24 9h24m-24 9h24m-24 9h24" stroke="#687e86" stroke-width="3"/>
+<circle cx="120" cy="70" r="27" fill="#263638" stroke="#abb6a7" stroke-width="3"/><circle cx="120" cy="70" r="17" fill="#121b20" stroke="#ba8f56" stroke-width="4"/><path d="m120 51 0 19 13 11m-13-11-13 11" stroke="#ffa95d" stroke-width="3"/><circle cx="120" cy="70" r="4" fill="#ffe2a3"/>
+<path d="M58 129 182 129 170 180H70Z" fill="#102029" stroke="#668b95" stroke-width="2"/><path d="m64 138 112 0m-109 10h106m-103 10h100m-97 10h94" stroke="#72909a" stroke-width="3"/>
+<path d="M71 184H169V260H71Z" fill="url(#steel)" stroke="#667a80" stroke-width="2"/><path d="M82 194H158V249H82Z" fill="#aab9b9" stroke="#e4ebe2"/><path d="M120 186V259" stroke="#85989c"/>
+<path d="m68 270 104 0 13 45Q120 331 55 315Z" fill="url(#glass)" stroke="#bed0d0" stroke-width="3"/><path d="m79 277 85 0 7 26-89-2Z" fill="#9bc4cc" opacity=".12"/>
+<path d="m55 329 130 0-8 60Q120 400 63 389Z" fill="url(#hood)" stroke="#dce4d9"/><path d="m67 340 106 0m-53-5v54" stroke="#d5e0d7" stroke-opacity=".4"/>
+<path d="m49 149 13 36v79l-13 37Zm142 0-13 36v79l13 37Z" fill="#152932" stroke="#8da5ad"/><path d="m45 148-8-13 0-80 13-17m145 110 8-13 0-80-13-17" stroke="#e1c88d" stroke-width="4"/>
+<path d="m44 149-5 155 12 68m145-223 5 155-12 68" stroke="#34464f" stroke-width="6"/><path d="m44 149-5 155 12 68m145-223 5 155-12 68" stroke="#71d9ed" stroke-width="2"/>
+<path d="M50 35H80m80 0h30" stroke="#ff784c" stroke-width="6"/><path d="m55 395 36 5m58 0 36-5" stroke="#fff1bc" stroke-width="6"/><path d="M96 400h48" stroke="#253840" stroke-width="5"/>
+<path d="m41 276-16 4v13l16-5m158-12 16 4v13l-16-5" fill="#b9c7c6" stroke="#596c75"/>
+<path d="M91 107h58v12H91Z" fill="#182830" stroke="#91a4a8"/><path d="M97 113h16m9 0h20" stroke="#e8b375" stroke-width="2"/>
+<g fill="#ecf2dc"><circle cx="53" cy="126" r="2"/><circle cx="187" cy="126" r="2"/><circle cx="52" cy="322" r="2"/><circle cx="188" cy="322" r="2"/></g>
+</svg>
