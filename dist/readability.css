@@ -65,7 +65,7 @@
 .skills li { gap: 9px; min-width: 0; }
 .skills li > .tech-logo {
   width: 60px; height: 60px; border-radius: 14px;
-  background: #f1f0e7; border: 1px solid #c5cfc3;
+  background: #b8c0bb; border: 1px solid #8f9c94;
   display: grid; place-items: center;
   transition: transform .2s;
 }

@@ -4,6 +4,8 @@ const scene = document.querySelector('.scene');
 const car = document.querySelector('.car-position');
 const chapters = [...document.querySelectorAll('.chapter')];
 const routes = [...document.querySelectorAll('.route a')];
+const header = document.querySelector('.header');
+const menuLinks = [...header.querySelectorAll('nav a')];
 const motionButton = document.querySelector('.motion-toggle');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const canvas = document.querySelector('.sparks');
@@ -19,6 +21,17 @@ let lastScrollTime = performance.now(), lastFrameTime = lastScrollTime;
 let roadOffset = 0, spawnBudget = 0, previousStage = -1;
 let sceneWidth = 0, sceneHeight = 0, carWidth = 0, carHeight = 0, baseX = 0, baseY = 0;
 let particles = [];
+let scrollOffset = 120;
+
+function updateNavigationGeometry() {
+  const headerHeight = header.getBoundingClientRect().height;
+  root.style.setProperty('--header-height', `${headerHeight}px`);
+  const panelHeight = innerWidth <= 700 ? machine.getBoundingClientRect().height : 0;
+  scrollOffset = headerHeight + panelHeight + 20;
+  root.style.setProperty('--scroll-offset', `${scrollOffset}px`);
+  document.querySelector('.folder-tabs').setAttribute('aria-orientation', innerWidth <= 1150 ? 'horizontal' : 'vertical');
+  requestRender();
+}
 
 const stored = key => { try { return localStorage.getItem(key); } catch { return null; } };
 const persist = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Storage is optional. */ } };
@@ -112,13 +125,18 @@ function render(now) {
   speedText.textContent = String(Math.round(speed)).padStart(2, '0');
   drawParticles(dt, energy, baseX + sway, baseY + advance);
   let stage = 0;
-  chapters.forEach((chapter, i) => { if (chapter.getBoundingClientRect().top < innerHeight * (compact ? .45 : .48)) stage = i; });
+  const readingLine = Math.min(innerHeight - 30, scrollOffset + 70);
+  chapters.forEach((chapter, i) => { if (chapter.getBoundingClientRect().top <= readingLine) stage = i; });
+  if (scrollY > 0 && Math.ceil(scrollY + innerHeight) >= root.scrollHeight - 2) stage = chapters.length - 1;
   if (stage !== previousStage) {
     previousStage = stage;
     const data = chapters[stage].dataset;
     year.textContent = data.year; month.textContent = data.month; day.textContent = data.day; destination.textContent = data.label;
     machine.dataset.stage = stage;
-    routes.forEach((link,i) => { if (i === stage) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); });
+    [...routes, ...menuLinks].forEach(link => {
+      if (link.hash === `#${chapters[stage].id}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
   }
   if (!paused && !document.hidden && (speed > 0 || particles.length > 0)) requestRender();
 }
@@ -134,6 +152,11 @@ motionButton.addEventListener('click', () => { paused = !paused; persist('pv-mot
 reducedMotion.addEventListener('change', event => { paused = event.matches; updateMotion(); requestRender(); });
 window.addEventListener('resize', resizeScene, { passive: true });
 new ResizeObserver(resizeScene).observe(scene);
+const navigationObserver = new ResizeObserver(updateNavigationGeometry);
+navigationObserver.observe(header);
+navigationObserver.observe(machine);
+// Opening a catalog tab changes section heights even without scrolling.
+new ResizeObserver(requestRender).observe(document.querySelector('.chapters'));
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) { cancelAnimationFrame(frame); frame = 0; particles = []; speed = 0; targetSpeed = 0; }
   else { lastFrameTime = performance.now(); lastScrollTime = lastFrameTime; lastScroll = scrollY; requestRender(); }
@@ -147,6 +170,7 @@ function activateTab(index, focus = false) {
     document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
   });
   if (focus) tabs[index].focus();
+  requestRender();
 }
 tabs.forEach((tab, index) => {
   tab.addEventListener('click', () => activateTab(index));
@@ -175,4 +199,4 @@ form.addEventListener('submit', event => {
 });
 form.addEventListener('input', () => { draftLink.hidden = true; draftLink.removeAttribute('href'); form.querySelector('.form-status').textContent = ''; });
 document.querySelector('#current-year').textContent = new Date().getFullYear();
-updateMotion(); resizeScene(); requestRender();
+updateMotion(); updateNavigationGeometry(); resizeScene(); requestRender();

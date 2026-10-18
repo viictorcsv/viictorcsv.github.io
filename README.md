@@ -20,6 +20,7 @@ No PowerShell com execução de scripts restrita, use `npm.cmd run dev`. Abra ht
 - `dist/en/index.html`: página gerada em inglês (`/en/`).
 - `dist/styles.css`: identidade visual, layout e adaptação para celular.
 - `dist/readability.css`: escala de leitura, contraste, capas fornecidas pelo autor e apresentação dos logos.
+- `dist/navigation.css`: menu fixo, navegação por seção e catálogo pessoal dentro do terminal.
 - `dist/app.js`: aceleração, faíscas em canvas, datas, temas, pastas e rascunho de e-mail.
 - `dist/assets/time-machine-top.svg`: ilustração vetorial editável do carro visto de cima.
 - `dist/assets/pedro-victor-curriculo.pdf`: currículo fornecido pelo autor.
@@ -28,6 +29,8 @@ No PowerShell com execução de scripts restrita, use `npm.cmd run dev`. Abra ht
 O diretório `dist` pode ser hospedado diretamente em qualquer serviço de sites estáticos. O manifesto `.openai/hosting.json` identifica a prévia privada do Sites.
 
 ## Comportamento e acessibilidade
+
+A apresentação é seguida por Sobre mim (terminal e tecnologias), Experiência, Projetos e Contato. Filmes e músicas ficam na pasta “Fora do código” / “Off the clock” do terminal. O menu acompanha a rolagem, destaca a seção atual e compensa a altura dos painéis fixos ao navegar pelos links. Os controles da máquina do tempo mostram números e nomes das seções.
 
 O scroll é nativo. No desktop, a cena permanece à direita; no celular, carro e data acompanham a leitura em uma faixa compacta no topo. A intensidade do scroll controla a velocidade, o movimento da pista, os rastros e as faíscas; o carro desacelera quando o scroll para. A renderização encerra após a desaceleração e a dissipação das partículas (máximo de 110, canvas limitado a DPR 2).
 

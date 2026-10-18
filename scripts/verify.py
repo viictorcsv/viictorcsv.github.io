@@ -22,6 +22,16 @@ with sync_playwright() as p:
     assert page.locator('.brand > span, .contact-symbol').count() == 0
     assert page.locator('.tech-logo img').count() == 18
     assert page.locator('.record-label img').count() == 2
+    assert page.locator('.chapter').evaluate_all('(els) => els.map(el => el.id)') == ['inicio', 'sobre', 'trajetoria', 'projetos', 'contato']
+    assert page.locator('.chapters > .favorites').count() == 0
+    assert page.locator('#file-1 .personal-catalog').count() == 1
+    assert not page.locator('.personal-catalog').is_visible()
+
+    def visit_section(section):
+        page.locator(f'#{section}').evaluate('(el) => el.scrollIntoView({block:"start",behavior:"instant"})')
+        page.wait_for_function('(id) => document.querySelector(`.route a[href="#${id}"]`).getAttribute("aria-current") === "location"', arg=section)
+        if section in ('sobre', 'trajetoria', 'projetos'):
+            assert page.locator('.header nav a[aria-current="location"]').get_attribute('href') == '#' + section
 
     # Real scroll input at two rates: speed rises, particles render, and the car coasts to rest.
     page.evaluate("document.documentElement.style.scrollBehavior='auto'")
@@ -41,7 +51,7 @@ with sync_playwright() as p:
     page.screenshot(path=str(output / 'v2-acceleration.png'))
     page.wait_for_timeout(2200)
     assert page.locator('#speed-value').inner_text() == '00'
-    page.locator('#projetos').scroll_into_view_if_needed()
+    visit_section('projetos')
     page.wait_for_timeout(300)
     assert page.locator('#destination-year').inner_text() == '2015'
     page.locator('.motion-toggle').click()
@@ -52,12 +62,17 @@ with sync_playwright() as p:
     assert page.locator('.sparks').evaluate('(el) => getComputedStyle(el).opacity') == '0'
     page.locator('.motion-toggle').click()
 
-    page.locator('#sobre').scroll_into_view_if_needed()
+    visit_section('sobre')
     page.wait_for_timeout(300)
     assert page.locator('#destination-month').inner_text() == 'AGO'
     page.locator('#tab-1').click()
     assert page.locator('#file-1').is_visible()
     assert not page.locator('#file-0').is_visible()
+    assert page.locator('.personal-catalog').is_visible()
+    assert page.locator('#file-1 .poster').count() == 2
+    assert page.locator('#file-1 .record').count() == 2
+    page.locator('.personal-catalog').scroll_into_view_if_needed()
+    page.screenshot(path=str(output / 'v4-catalog.png'))
     page.locator('#tab-1').press('ArrowRight')
     assert page.locator('#tab-2').get_attribute('aria-selected') == 'true'
     page.locator('#tab-0').click()
@@ -105,11 +120,29 @@ with sync_playwright() as p:
             page.wait_for_timeout(150)
             assert page.locator('.tech-logo img').evaluate_all('(els) => els.every(el => el.complete && el.naturalWidth > 0)')
             page.evaluate('window.scrollTo({top:0,behavior:"instant"})')
+            assert abs(page.locator('.header').bounding_box()['y']) < 1
+            for section in ('sobre', 'trajetoria', 'projetos'):
+                page.locator(f'.header nav a[href="#{section}"]').click()
+                page.wait_for_function('(id) => document.querySelector(`.header nav a[href="#${id}"]`).getAttribute("aria-current") === "location"', arg=section)
+                page.wait_for_timeout(1000)
+                assert abs(page.locator('.header').bounding_box()['y']) < 1
+                offset = page.evaluate('parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--scroll-offset"))')
+                assert abs(page.locator('#' + section).bounding_box()['y'] - offset) < 4, (route, width, section)
+            visit_section('sobre')
+            page.locator('#tab-1').click()
+            page.locator('#file-1 .poster img').first.scroll_into_view_if_needed()
+            page.wait_for_timeout(200)
+            assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), ('catalog', route, width)
+            assert page.locator('#file-1 .poster img').evaluate_all('(els) => els.every(el => el.complete && el.naturalWidth > 0)')
+            page.locator('#tab-0').click()
+            page.locator('.route a[href="#inicio"]').click()
+            page.wait_for_timeout(1100)
             if width == 390 and route == '/':
                 page.screenshot(path=str(output / 'v2-mobile.png'))
                 page.locator('.header a[href="#projetos"]').click()
                 page.wait_for_timeout(1100)
-                assert 150 <= page.locator('#projetos').bounding_box()['y'] <= 210
+                offset = page.evaluate('parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--scroll-offset"))')
+                assert abs(page.locator('#projetos').bounding_box()['y'] - offset) < 4
                 assert page.locator('#destination-year').is_visible()
                 assert page.locator('#destination-year').inner_text() == '2015'
                 page.screenshot(path=str(output / 'v2-mobile-projects.png'))
